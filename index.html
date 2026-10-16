@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sessão em Jogo</title>
+<meta name="description" content="Biblioteca de jogos terapêuticos online para habilidades emocionais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#F4EADB; --sand-2:#E8D8C0; --cream:#FBF6EE;
+    --brown:#4A3426; --brown-2:#6B5240;
+    --terracotta:#B4501F; --terracotta-d:#8A3D1A;
+    --sage:#93A88B; --sage-d:#5A7452; --sage-ink:#24331F;
+    --mustard:#E0A93B; --peach:#F2C6A0;
+    --display:'Baloo 2','Nunito',system-ui,sans-serif;
+    --body:'Nunito','Segoe UI',system-ui,sans-serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:var(--body); color:var(--brown); -webkit-font-smoothing:antialiased;
+    background:radial-gradient(circle at 1px 1px, rgba(180,80,31,.10) 1.2px, transparent 1.7px) 0 0/22px 22px, var(--sand)}
+  .wrap{max-width:1160px; margin:0 auto; padding:28px 16px 48px}
+  header{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:24px; align-items:center; background:var(--cream); border-radius:32px; padding:28px clamp(18px,4vw,44px); box-shadow:0 6px 0 var(--sand-2)}
+  .brand{font:800 .78rem var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--sage-d)}
+  h1{margin:6px 0 10px; font:800 clamp(2.2rem,5.4vw,3.6rem)/1 var(--display); color:var(--terracotta)}
+  header p{margin:0; font-weight:700; font-size:1.08rem; line-height:1.45; max-width:52ch}
+  .phases{display:grid; gap:10px}
+  .phase{display:flex; gap:12px; align-items:center; background:var(--sand); border-radius:18px; padding:10px 14px}
+  .phase b{flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center; color:var(--cream); font:800 1.2rem/1 var(--display)}
+  .phase span{font:800 1.05rem/1.1 var(--display)} .phase small{display:block; font-weight:700; color:var(--brown-2); font-size:.88rem}
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin:26px 0 16px}
+  .filters button{font:800 .92rem var(--body); border:0; border-radius:999px; padding:9px 16px; cursor:pointer; background:var(--cream); color:var(--brown-2); box-shadow:inset 0 0 0 2px var(--sand-2)}
+  .filters button[aria-pressed="true"]{background:var(--terracotta); color:var(--cream); box-shadow:none}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px}
+  .card{display:flex; flex-direction:column; background:var(--cream); border-radius:26px; overflow:hidden; box-shadow:0 6px 0 var(--sand-2); text-decoration:none; color:inherit; transition:transform .15s}
+  .card:hover{transform:translateY(-3px)}
+  .card img{display:block; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top; border-bottom:2px solid var(--sand-2)}
+  .card .body{padding:14px 18px 18px; display:flex; flex-direction:column; gap:8px; flex:1}
+  .tags{display:flex; gap:6px; flex-wrap:wrap}
+  .tag{font:800 .72rem var(--body); letter-spacing:.06em; text-transform:uppercase; border-radius:999px; padding:3px 10px; background:var(--sand); color:var(--brown-2)}
+  .tag.f1{background:var(--sage); color:var(--sage-ink)} .tag.f2{background:var(--mustard); color:var(--brown)} .tag.nar{background:var(--peach); color:var(--terracotta-d)}
+  .card h2{margin:2px 0 0; font:800 1.55rem/1.05 var(--display)}
+  .card p{margin:0; font-weight:700; color:var(--brown-2); line-height:1.4; flex:1}
+  .play{align-self:flex-start; margin-top:6px; font:800 1rem var(--display); color:var(--cream); background:var(--terracotta); border-radius:999px; padding:8px 20px; box-shadow:0 4px 0 var(--terracotta-d)}
+  .how{margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px}
+  .how div{background:var(--cream); border-radius:22px; padding:16px 18px; box-shadow:inset 0 0 0 2px var(--sand-2)}
+  .how h3{margin:0 0 6px; font:800 1.15rem var(--display); color:var(--terracotta)}
+  .how p{margin:0; font-weight:700; color:var(--brown-2); line-height:1.4; font-size:.95rem}
+  footer{margin-top:28px; text-align:center; font-weight:700; font-size:.88rem; color:var(--brown-2)}
+  @media (max-width:820px){ header{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="brand">Biblioteca de jogos terapêuticos</div>
+      <h1>Sessão em Jogo</h1>
+      <p>Jogos para atendimento online e presencial, pensados para compartilhar a tela: a terapeuta conduz, a criança fala. Uma sequência de habilidades emocionais, do reconhecer ao regular.</p>
+    </div>
+    <div class="phases">
+      <div class="phase"><b style="background:var(--sage-d)">1</b><div><span>Nomear</span><small>Reconhecer e dar nome às emoções</small></div></div>
+      <div class="phase"><b style="background:var(--mustard)">2</b><div><span>Corpo e intensidade</span><small>Perceber sinais do corpo e o tamanho da emoção</small></div></div>
+      <div class="phase"><b style="background:var(--terracotta)">3</b><div><span>Regular</span><small>Estratégias para lidar com cada nível · em breve</small></div></div>
+    </div>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filtrar jogos">
+    <button data-f="all" aria-pressed="true">Todos</button>
+    <button data-f="f1" aria-pressed="false">Fase 1 · Nomear</button>
+    <button data-f="f2" aria-pressed="false">Fase 2 · Corpo</button>
+    <button data-f="nar" aria-pressed="false">Narrativa</button>
+    <button data-f="teen" aria-pressed="false">Tem versão pré-adolescente</button>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <section class="how">
+    <div><h3>Como usar na sessão</h3><p>Abra o jogo, compartilhe a tela e conduza com os botões da barra marrom "Só para a terapeuta". A criança responde falando números e palavras.</p></div>
+    <div><h3>Sigilo</h3><p>Os jogos não salvam nenhum dado. O resumo para o prontuário fica no Painel de cada jogo e some ao fechar a página.</p></div>
+    <div><h3>Celular, tablet ou computador</h3><p>Funcionam em qualquer navegador. No computador, os atalhos de teclado agilizam a condução.</p></div>
+  </section>
+  <footer>Sessão em Jogo · uso profissional</footer>
+</div>
+<script>
+var GAMES = [
+  {slug:'memoria-das-emocoes', name:'Memória das Emoções', tags:['f1'], teen:false,
+   txt:'Jogo da memória com rostos de emoções, em três níveis. A cada par, a criança nomeia a emoção e conta quando já sentiu.'},
+  {slug:'cara-de-que', name:'Cara de quê?', tags:['f1'], teen:true,
+   txt:'Ler emoções no rosto: só a cara, cara com situação, duas emoções ao mesmo tempo e um nível para pré-adolescentes.'},
+  {slug:'carta-secreta', name:'Carta Secreta', tags:['f1'], teen:true,
+   txt:'No estilo Cara a Cara: perguntas de sim ou não sobre rosto, corpo e tipo de emoção para descobrir a carta do outro.'},
+  {slug:'domino-das-emocoes', name:'Dominó das Emoções', tags:['f1','f2'], teen:true,
+   txt:'Ligar rosto, nome, situação e sinais do corpo. Modos competitivo e cooperativo, com melhor de três.'},
+  {slug:'rola-historia', name:'Rola História', tags:['nar'], teen:false,
+   txt:'Dados de personagem, emoção, lugar, problema e solução para criar histórias e pensar em saídas para os problemas.'},
+  {slug:'termometro-das-emocoes', name:'Termômetro das Emoções', tags:['f2'], teen:true,
+   txt:'Quanto eu sinto? Intensidade de 1 a 5 (ou 0 a 10), sinais do corpo, escada de situações e o termômetro pessoal.'}
+];
+var LBL = {f1:'Fase 1 · Nomear', f2:'Fase 2 · Corpo', nar:'Narrativa'};
+function render(f){
+  document.getElementById('grid').innerHTML = GAMES.filter(function(g){
+    return f==='all' || (f==='teen' ? g.teen : g.tags.indexOf(f)>=0);
+  }).map(function(g){
+    return '<a class="card" href="jogos/'+g.slug+'/"><img src="img/'+g.slug+'.webp" alt="Tela do jogo '+g.name+'" loading="lazy">'+
+      '<div class="body"><div class="tags">'+g.tags.map(function(t){return '<span class="tag '+t+'">'+LBL[t]+'</span>';}).join('')+
+      '<span class="tag">'+(g.teen?'Crianças e pré-adolescentes':'Crianças')+'</span>'+'</div>'+
+      '<h2>'+g.name+'</h2><p>'+g.txt+'</p><span class="play">Jogar</span></div></a>';
+  }).join('');
+}
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.onclick=function(){ document.querySelectorAll('.filters button').forEach(function(x){ x.setAttribute('aria-pressed', x===b); }); render(b.dataset.f); };
+});
+render('all');
+</script>
+</body>
+</html>
